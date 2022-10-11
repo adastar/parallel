@@ -26,11 +26,11 @@ classdef MLT_AST_005 < matlab.unittest.TestCase
         baselineVal = struct('double', 4, 'single', single(4), 'int8', int8(4), ...
             'uint8', uint8(4), 'int16', int16(4), 'uint16', uint16(4), ...
             'int32', int32(4), 'uint32', uint32(4), 'int64', int64(4), ...
-            'uint64', uint64(4), 'stringPos', "abc", 'stringNeg','def','ts11', 4.4, 'ts12', 5);
+            'uint64', uint64(4), 'stringPos', "abc");
         actualVal = struct('double', 4, 'single', single(4), 'int8', int8(4), ...
             'uint8', uint8(4), 'int16', int16(4), 'uint16', uint16(4), ...
             'int32', int32(4), 'uint32', uint32(4), 'int64', int64(4), ...
-            'uint64', uint64(4), 'stringPos',"abc", 'stringNeg',"ded",'ts11', 4, 'ts12', 4.5);        
+            'uint64', uint64(4), 'stringPos',"abc");        
     end
     
 
@@ -44,16 +44,6 @@ classdef MLT_AST_005 < matlab.unittest.TestCase
         function testAssertEqualTo(testCase, actualVal, baselineVal)
             import matlab.unittest.constraints.IsEqualTo;
             testCase.assertThat(actualVal, IsEqualTo(baselineVal));
-        end
-
-        function testEnumVerifyEqualTo(testCase)
-            import matlab.unittest.constraints.IsEqualTo;
-            testCase.verifyThat(Bearing.South, IsEqualTo(Bearing.Southwest));
-        end
-
-        function testEnumAssertEqualTo(testCase)
-            import matlab.unittest.constraints.IsEqualTo;
-            testCase.assertThat(Bearing.South, IsEqualTo(Bearing.Southwest));
         end
     end
 
